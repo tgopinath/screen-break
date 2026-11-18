@@ -55,3 +55,11 @@ Settings → General → Developer → Test mode: intervals become 10–30 s (mi
 ## Desktop self-test
 
 `SB_SELFTEST=/some/dir npx electron .` (add `SB_DEV_URL=...` for dev). It runs in a throwaway profile, drives the tray, close-to-tray, pause/resume, power events and a break, then writes screenshots and `report.json`.
+
+## Hosting and phone apps
+
+- Web: Vercel project `screen-break` (git-connected, push to main deploys; `vercel.json` skips the Electron binary download), live at https://screen-break-nine.vercel.app.
+- Android: remote Capacitor shell in `~/Documents/android-wrappers/screen-break`; APK on GitHub release v1.0.0 together with the macOS DMG.
+- iPhone: SwiftUI WKWebView shell, https://github.com/tgopinath/ScreenBreak-iOS.
+- Inside the phone apps `src/lib/native.ts` loads the shared Kolam kits: Material Design 3 bars in the Android app, Apple HIG bars in the iPhone app. Browsers and the desktop app are unchanged. Preview with `?app=android`, `?app=ios`, `?app=web`.
+- Portfolio screenshots: `node tools/shots.mjs` (captures the live site into `prototype/shots`).
