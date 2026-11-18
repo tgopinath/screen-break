@@ -20,7 +20,7 @@ export function Header({ route, navigate }: { route: string; navigate: (r: strin
   const greeting = now.getHours() < 12 ? 'Good morning' : now.getHours() < 18 ? 'Good afternoon' : 'Good evening'
   return (
     <>
-      <header className={cx('drag sticky top-0 z-30 border-b border-border/70 bg-bg/80 backdrop-blur-xl', mac && 'pt-6 sm:pt-0')}>
+      <header className={cx('site-header drag sticky top-0 z-30 border-b border-border/70 bg-bg/80 backdrop-blur-xl', mac && 'pt-6 sm:pt-0')}>
         <div className={cx('mx-auto flex h-16 max-w-6xl items-center gap-4 px-4 sm:px-6', mac && 'sm:pl-24')}>
           <button className="no-drag flex items-center gap-2.5" onClick={() => navigate('dashboard')}>
             <Logo size={32} />
@@ -51,7 +51,7 @@ export function Header({ route, navigate }: { route: string; navigate: (r: strin
           </div>
         </div>
       </header>
-      <nav className="fixed inset-x-0 bottom-0 z-30 flex border-t border-border bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl md:hidden" aria-label="Main">
+      <nav className="site-tabbar fixed inset-x-0 bottom-0 z-30 flex border-t border-border bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl md:hidden" aria-label="Main">
         {NAV.map((n) => (
           <button key={n.id} onClick={() => navigate(n.id)} aria-current={route.startsWith(n.id) ? 'page' : undefined} className={cx('flex flex-1 flex-col items-center gap-0.5 py-2.5 text-[11px] font-semibold', route.startsWith(n.id) ? 'text-primary-strong' : 'text-muted')}>
             <n.icon size={20} />

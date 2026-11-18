@@ -4,5 +4,8 @@ import './index.css'
 import { App } from './App'
 import { TrayView } from './pages/TrayView'
 import { isTrayWindow } from './lib/platform'
+import { initNative } from './lib/native'
 
 createRoot(document.getElementById('root')!).render(<StrictMode>{isTrayWindow ? <TrayView /> : <App />}</StrictMode>)
+
+if (!isTrayWindow) void initNative()

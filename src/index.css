@@ -325,3 +325,12 @@ input[type='date']::-webkit-calendar-picker-indicator {
   }
 }
 
+/* ---------- Phone apps (src/lib/native.ts) ----------
+   html.k-android = Android app (Material 3 bars, Kolam M3 kit); html.k-ios = iPhone app (HIG bars, Kolam iOS kit).
+   The website's header and bottom tab bar give way to the native bars. Nothing changes in a browser or on desktop. */
+html:is(.k-android, .k-ios) .site-header,
+html:is(.k-android, .k-ios) .site-tabbar { display: none !important; }
+html:is(.k-android, .k-ios) #root > div { padding-bottom: 16px; }
+html:is(.k-android, .k-ios) main { padding-top: 8px; }
+html.k-android body { background: var(--md-sys-color-surface); }
+html.k-ios body { background: var(--ios-grouped); }
